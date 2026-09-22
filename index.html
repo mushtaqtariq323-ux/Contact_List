@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Contact List</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<main class="app">
+<header class="header">
+<div><p class="eyebrow">CONTACT MANAGER</p><h1>Contact List</h1><p class="subtitle">Add, search, edit, and manage your contacts.</p></div>
+<div class="contact-count" id="contactCount">0 contacts</div>
+</header>
+
+<section class="card">
+<div class="section-heading"><div class="icon-badge">+</div><div><h2>Add Contact</h2><p>Only Gmail addresses are accepted.</p></div></div>
+<form id="contactForm" class="form-grid">
+<div class="field"><label for="name">Name</label><input id="name" type="text" placeholder="e.g. Ali Khan" required></div>
+<div class="field"><label for="email">Email</label><input id="email" type="email" placeholder="e.g. ali@gmail.com" required></div>
+<button class="primary-btn" id="addBtn" type="submit">＋ Add Contact</button>
+</form>
+<p id="formMessage" class="message"></p>
+</section>
+
+<section class="card">
+<div class="list-toolbar">
+<div class="section-heading compact"><div class="icon-badge">⌕</div><div><h2>Your Contacts</h2><p>Saved contacts from Firebase.</p></div></div>
+<div class="toolbar-actions"><div class="search-wrap"><span>⌕</span><input id="searchInput" type="search" placeholder="Search name or email..."></div><button id="deleteAllBtn" class="danger-btn" type="button">Delete All</button></div>
+</div>
+<div id="loading" class="state">Connecting to Firebase...</div>
+<div id="emptyState" class="state hidden"><div class="empty-icon">◎</div><h3>No contacts found</h3><p>Add your first contact above.</p></div>
+<div id="contactList" class="contact-list"></div>
+</section>
+
+<div id="editModal" class="modal hidden">
+<div class="modal-box">
+<button id="closeModal" class="close-btn" type="button">×</button>
+<div class="section-heading"><div class="icon-badge">✎</div><div><h2>Edit Contact</h2><p>Update the details.</p></div></div>
+<form id="editForm">
+<input id="editId" type="hidden">
+<div class="field"><label for="editName">Name</label><input id="editName" required></div>
+<div class="field"><label for="editEmail">Email</label><input id="editEmail" type="email" required></div>
+<p id="editMessage" class="message"></p>
+<div class="modal-actions"><button id="cancelEdit" class="secondary-btn" type="button">Cancel</button><button class="primary-btn" type="submit">Save Changes</button></div>
+</form>
+</div>
+</div>
+</main>
+<script type="module" src="app.js"></script>
+</body>
+</html>
